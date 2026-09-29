@@ -6,6 +6,7 @@ import docsConfig from './config/docs.config.js';
 import { envValidationSchema } from './config/env.validation.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { buildTypeOrmOptions } from './config/typeorm.config.js';
+import { HealthModule } from './health/health.module.js';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { buildTypeOrmOptions } from './config/typeorm.config.js';
       inject: [ConfigService],
       useFactory: buildTypeOrmOptions,
     }),
+    HealthModule,
   ],
   controllers: [],
   providers: [],

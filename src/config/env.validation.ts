@@ -1,4 +1,4 @@
-import * as Joi from 'joi';
+import Joi from 'joi';
 import { NodeEnv } from '../common/constants/enum.js';
 
 const booleanString = () => Joi.boolean().sensitive();
@@ -15,8 +15,8 @@ export const envValidationSchema = Joi.object({
   CORS_ORIGINS: Joi.string().allow(''),
   CORS_CREDENTIALS: booleanString(),
 
-  // databaes
-  HOST: Joi.string().hostname().required(),
+  // database
+  DATABASE_HOST: Joi.string().hostname().required(),
   DATABASE_PORT: Joi.number().port(),
   DATABASE_USERNAME: Joi.string().required(),
   DATABASE_PASSWORD: Joi.string().required(),

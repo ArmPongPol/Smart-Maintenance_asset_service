@@ -8,14 +8,13 @@ import {
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { getRequestId } from '../middleware/request-id.middleware.js';
-import { retry } from 'rxjs';
 import { StandardResponse } from '../interfaces/standard-response.interface.js';
 
 const INTERNAL_ERROR_MESSAGE = 'Internal server error';
 
 @Catch()
 export class AllExceptionsFilter<T> implements ExceptionFilter {
-  private readonly logger = new Logger('http');
+  private readonly logger = new Logger('HTTP');
 
   catch(exception: T, host: ArgumentsHost): void {
     const http = host.switchToHttp();
